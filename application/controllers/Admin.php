@@ -12,6 +12,14 @@ public function index()
 		$this->load->view('Templates/Footer');
 				
 }
+	public function Pertanyaan()
+	{
+		$this->load->view('Templates/Header');
+		$this->load->view('Templates/Sidebar');
+		// $this->load->view('Admin/Pertanyaan');
+		// $this->load->view('Templates/Footer');
+		$this->load->view('Templates/Templates');
+	}
         
 }
         
