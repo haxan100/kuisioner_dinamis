@@ -1,31 +1,42 @@
-<!-- HEADER DESKTOP-->
+ <div class="col-md-12 col-sm-12 ">
+ 	<div class="x_panel">
+ 		<div class="x_content">
+ 			<div class="row">
+ 				<div class="col-sm-12">
+ 					<div class="card-box table-responsive">
+ 						<table id="pertanyaan" class="table table-striped table-bordered" style="width:100%">
+ 							<thead>
+ 								<tr>
+ 									<th>No</th>
+ 									<th>Pertanyaan</th>
+ 									<th>Jawaban</th>
+ 									<th>Aksi</th>
+ 								</tr>
+ 							</thead>
+ 						</table>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>
 
-<!-- MAIN CONTENT-->
-<div class="main-content">
-	<div class="section__content section__content--p30">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="row m-t-30">
-					<div class="col-md-12">
-						<!-- DATA TABLE-->
-						<div class="table-responsive m-b-40">
-							<table class="table table-borderless table-data3" id="pertanyaan">
-								<thead>
-									<tr>
-										<th>No</th>
-										<th>Pertanyaan</th>
-										<th>Jawaban</th>
-										<th>Aksi</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-						<!-- END DATA TABLE-->
-					</div>
-				</div>
-			</div>
+ <script>
+ 	document.addEventListener("DOMContentLoaded", function(event) {
 
-		</div>
-
-		<script src="<?= base_url() ?>/assets/templates/vendor/datatables/datatables.js">
-		</script>
+ 		var bu = '<?= base_url(); ?>';
+ 		var datatable = $('#pertanyaan').DataTable({
+ 			"paging": true,
+ 			"order": [
+ 				[1, "desc"]
+ 			],
+ 			'ajax': {
+ 				url: bu + 'admin/getPertanyaan',
+ 				type: 'POST',
+ 				"data": function(d) {
+ 					return d;
+ 				}
+ 			},
+ 		});
+ 	});
+ </script>

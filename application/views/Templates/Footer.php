@@ -10,7 +10,7 @@
 </div>
 
 <!-- jQuery -->
-<script src="<?= base_url() ?>/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?= base_url() ?>/assets/vendors/jquery/dist/jquery.js"></script>
 <!-- Bootstrap -->
 <script src="<?= base_url() ?>/assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- FastClick -->
@@ -46,6 +46,9 @@
 <!-- bootstrap-daterangepicker -->
 <script src="<?= base_url() ?>/assets/vendors/moment/min/moment.min.js"></script>
 <script src="<?= base_url() ?>/assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+
+<script src="<?= base_url() ?>/assets/vendors/datatables.net/js/jquery.dataTables.js"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="<?= base_url() ?>/assets/build/js/custom.min.js"></script>
