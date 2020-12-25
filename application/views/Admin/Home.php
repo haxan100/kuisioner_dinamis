@@ -1,151 +1,110 @@
-<!-- HEADER DESKTOP-->
 
-<!-- MAIN CONTENT-->
-<div class="main-content">
-	<div class="section__content section__content--p30">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="overview-wrap">
-						<h2 class="title-1">overview</h2>
-						<button class="au-btn au-btn-icon au-btn--blue">
-							<i class="zmdi zmdi-plus"></i>add item</button>
-					</div>
-				</div>
-			</div>
-			<div class="row m-t-25">
-				<div class="col-sm-6 col-lg-3">
-					<div class="overview-item overview-item--c1">
-						<div class="overview__inner">
-							<div class="overview-box clearfix">
-								<div class="icon">
-									<i class="zmdi zmdi-account-o"></i>
-								</div>
-								<div class="text">
-									<h2>10368</h2>
-									<span>members online</span>
-								</div>
-							</div>
-							<div class="overview-chart">
-								<canvas id="widgetChart1"></canvas>
-							</div>
+				<!-- top tiles -->
+				<div class="row" style="display: inline-block;">
+					<div class="tile_count">
+						<div class="col-md-2 col-sm-4  tile_stats_count">
+							<span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+							<div class="count">2500</div>
+							<span class="count_bottom"><i class="green">4% </i> From last Week</span>
+						</div>
+						<div class="col-md-2 col-sm-4  tile_stats_count">
+							<span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
+							<div class="count">123.50</div>
+							<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
+						</div>
+						<div class="col-md-2 col-sm-4  tile_stats_count">
+							<span class="count_top"><i class="fa fa-user"></i> Total Males</span>
+							<div class="count green">2,500</div>
+							<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+						</div>
+						<div class="col-md-2 col-sm-4  tile_stats_count">
+							<span class="count_top"><i class="fa fa-user"></i> Total Females</span>
+							<div class="count">4,567</div>
+							<span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
+						</div>
+						<div class="col-md-2 col-sm-4  tile_stats_count">
+							<span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
+							<div class="count">2,315</div>
+							<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+						</div>
+						<div class="col-md-2 col-sm-4  tile_stats_count">
+							<span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
+							<div class="count">7,325</div>
+							<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-3">
-					<div class="overview-item overview-item--c2">
-						<div class="overview__inner">
-							<div class="overview-box clearfix">
-								<div class="icon">
-									<i class="zmdi zmdi-shopping-cart"></i>
+				<!-- /top tiles -->
+
+				<div class="row">
+					<div class="col-md-12 col-sm-12 ">
+						<div class="dashboard_graph">
+
+							<div class="row x_title">
+								<div class="col-md-6">
+									<h3>Network Activities <small>Graph title sub-title</small></h3>
 								</div>
-								<div class="text">
-									<h2>388,688</h2>
-									<span>items solid</span>
-								</div>
-							</div>
-							<div class="overview-chart">
-								<canvas id="widgetChart2"></canvas>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-3">
-					<div class="overview-item overview-item--c3">
-						<div class="overview__inner">
-							<div class="overview-box clearfix">
-								<div class="icon">
-									<i class="zmdi zmdi-calendar-note"></i>
-								</div>
-								<div class="text">
-									<h2>1,086</h2>
-									<span>this week</span>
-								</div>
-							</div>
-							<div class="overview-chart">
-								<canvas id="widgetChart3"></canvas>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-3">
-					<div class="overview-item overview-item--c4">
-						<div class="overview__inner">
-							<div class="overview-box clearfix">
-								<div class="icon">
-									<i class="zmdi zmdi-money"></i>
-								</div>
-								<div class="text">
-									<h2>$1,060,386</h2>
-									<span>total earnings</span>
-								</div>
-							</div>
-							<div class="overview-chart">
-								<canvas id="widgetChart4"></canvas>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="au-card recent-report">
-						<div class="au-card-inner">
-							<h3 class="title-2">recent reports</h3>
-							<div class="chart-info">
-								<div class="chart-info__left">
-									<div class="chart-note">
-										<span class="dot dot--blue"></span>
-										<span>products</span>
-									</div>
-									<div class="chart-note mr-0">
-										<span class="dot dot--green"></span>
-										<span>services</span>
-									</div>
-								</div>
-								<div class="chart-info__right">
-									<div class="chart-statis">
-										<span class="index incre">
-											<i class="zmdi zmdi-long-arrow-up"></i>25%</span>
-										<span class="label">products</span>
-									</div>
-									<div class="chart-statis mr-0">
-										<span class="index decre">
-											<i class="zmdi zmdi-long-arrow-down"></i>10%</span>
-										<span class="label">services</span>
+								<div class="col-md-6">
+									<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+										<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+										<span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
 									</div>
 								</div>
 							</div>
-							<div class="recent-report__chart">
-								<canvas id="recent-rep-chart"></canvas>
+
+							<div class="col-md-9 col-sm-9 ">
+								<div id="chart_plot_01" class="demo-placeholder"></div>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="au-card chart-percent-card">
-						<div class="au-card-inner">
-							<h3 class="title-2 tm-b-5">char by %</h3>
-							<div class="row no-gutters">
-								<div class="col-xl-6">
-									<div class="chart-note-wrap">
-										<div class="chart-note mr-0 d-block">
-											<span class="dot dot--blue"></span>
-											<span>products</span>
+							<div class="col-md-3 col-sm-3  bg-white">
+								<div class="x_title">
+									<h2>Top Campaign Performance</h2>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="col-md-12 col-sm-12 ">
+									<div>
+										<p>Facebook Campaign</p>
+										<div class="">
+											<div class="progress progress_sm" style="width: 76%;">
+												<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
+											</div>
 										</div>
-										<div class="chart-note mr-0 d-block">
-											<span class="dot dot--red"></span>
-											<span>services</span>
+									</div>
+									<div>
+										<p>Twitter Campaign</p>
+										<div class="">
+											<div class="progress progress_sm" style="width: 76%;">
+												<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60"></div>
+											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-6">
-									<div class="percent-chart">
-										<canvas id="percent-chart"></canvas>
+								<div class="col-md-12 col-sm-12 ">
+									<div>
+										<p>Conventional Media</p>
+										<div class="">
+											<div class="progress progress_sm" style="width: 76%;">
+												<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="40"></div>
+											</div>
+										</div>
+									</div>
+									<div>
+										<p>Bill boards</p>
+										<div class="">
+											<div class="progress progress_sm" style="width: 76%;">
+												<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+											</div>
+										</div>
 									</div>
 								</div>
+
 							</div>
+
+							<div class="clearfix"></div>
 						</div>
 					</div>
+
 				</div>
-			</div>
+				<br />
+
+

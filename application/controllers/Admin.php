@@ -8,6 +8,8 @@ public function index()
 {
         $this->load->view('Templates/Header');
 		$this->load->view('Templates/Sidebar');
+		$this->load->view('Templates/TopNavigasi');
+
 		$this->load->view('Admin/Home');
 		$this->load->view('Templates/Footer');
 				
@@ -16,9 +18,10 @@ public function index()
 	{
 		$this->load->view('Templates/Header');
 		$this->load->view('Templates/Sidebar');
+		$this->load->view('Templates/TopNavigasi');
 		// $this->load->view('Admin/Pertanyaan');
-		// $this->load->view('Templates/Footer');
 		$this->load->view('Templates/Templates');
+		$this->load->view('Templates/Footer');
 	}
         
 }
