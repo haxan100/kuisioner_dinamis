@@ -47,7 +47,14 @@ public function index()
         <button class="btn btn-warning my-1  btn-block btnUbah text-white" 
           data-id_pertanyaan="' . $row->id_pertanyaan . '"
           data-pertanyaan="' . $row->pertanyaan . '"
-        ><i class="far fa-edit"></i> Ubah</button>
+		><i class="far fa-edit"></i> Ubah</button>
+
+
+		
+        <button class="btn btn-warning my-1  btn-block btnDetail text-white" 
+          data-id_pertanyaan="' . $row->id_pertanyaan . '"
+		><i class="far fa-edit"></i> Detail </button>
+		
         
         <button class="btn btn-danger my-1  btn-block btnHapus text-white" 
           data-id_pertanyaan="' . $row->id_pertanyaan . '"
@@ -87,7 +94,7 @@ public function index()
 	public function hapusPertanyaan()
 	{
 		$id = $this->input->post('id', TRUE);
-		$data = $this->SemuaModel->getDataId('pertanyaan',$id)->result();
+		$data = $this->SemuaModel->getDataId('pertanyaan','id_pertanyaan',$id)->result();
 		$status = false;
 		$message = 'Gagal menghapus Data!';
 		if (count($data) == 0) {
@@ -131,6 +138,48 @@ public function index()
 			'message' => $message,
 			'errorInputs' => $errorInputs
 		));
+	}
+	public function Jawaban($id= "")
+	{
+		$obj['id'] = $id;
+		$obj['pertanyaan']= $this->SemuaModel->getDataId('pertanyaan','id_pertanyaan',$id)->row()->pertanyaan;
+		// var_dump($obj['pertanyaan']);die;
+		$this->load->view('Templates/Header');
+		$this->load->view('Templates/Sidebar');
+		$this->load->view('Templates/TopNavigasi');
+		$this->load->view('Admin/Jawaban',$obj);
+		$this->load->view('Templates/Footer');
+	}
+	public function getJawaban()
+	{
+
+		$id = $this->input->post('id');
+		$bu = base_url();
+		$dt = $this->AdminModel->dt_Jawaban($_POST);
+		$datatable['draw']   = isset($_POST['draw']) ? $_POST['draw'] : 1;
+		$datatable['recordsTotal']    = $dt['totalData'];
+		$datatable['recordsFiltered'] = $dt['totalData'];
+		$datatable['data']            = array();
+		$start  = isset($_POST['start']) ? $_POST['start'] : 0;
+		// var_dump($dt['data']->result());die();
+		$no = $start + 1;
+		foreach ($dt['data']->result() as $row) {
+			$fields = array($no++);
+			$fields[] = $row->jawaban . '<br>';
+			$fields[] = '
+        <button class="btn btn-warning my-1  btn-block btnUbah text-white" 
+          data-id_jawaban="' . $row->id_jawaban . '"
+          data-jawaban="' . $row->jawaban . '"
+		><i class="far fa-edit"></i> Ubah</button>
+
+        <button class="btn btn-danger my-1  btn-block btnHapus text-white" 
+          data-id_jawaban="' . $row->id_jawaban . '"
+          data-jawaban="' . $row->jawaban . '"
+				><i class="fas fa-trash"></i> Hapus</button>        ';
+			$datatable['data'][] = $fields;
+		}
+		echo json_encode($datatable);
+		exit();
 	}
         
 }

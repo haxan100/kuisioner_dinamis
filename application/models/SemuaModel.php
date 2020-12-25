@@ -7,10 +7,10 @@ class SemuaModel extends CI_Model {
 	{
 		return $this->db->insert($namaTable, $data);
 	}
-	public function getDataId($namaTable,$id)
+	public function getDataId($namaTable,$id_table,$id)
 	{
 		$this->db->select('*');
-		$this->db->where('id_pertanyaan', $id);
+		$this->db->where($id_table, $id);
 		$query = $this->db->get($namaTable);
 		return $query;
 		# code...
