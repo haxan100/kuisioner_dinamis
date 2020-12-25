@@ -25,6 +25,11 @@ class SemuaModel extends CI_Model {
 
 		# code...
 	}
+	public function editData($namaTable,$namaID,$id,$data)
+	{
+		$this->db->where($namaID, $id);
+		return $this->db->update($namaTable, $data);
+	}
                         
                             
                         

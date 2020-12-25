@@ -102,6 +102,36 @@ public function index()
 			'message' => $message,
 		));
 	}
+	public function ubahPertanyaan()
+	{
+		// var_dump($_POST);die;
+		$id = $this->input->post('id', TRUE);
+		$ask = $this->input->post('ask', TRUE);
+
+		$message = 'Gagal mengedit data !<br>Silahkan lengkapi data yang diperlukan.';
+		$errorInputs = array();
+		$status = true;
+
+		$in = array(
+			'pertanyaan' => $ask,
+		);
+		if (empty($ask)) {
+			$status = false;
+			$errorInputs[] = array('#ask', 'Silahkan Isi Pertanyaan');
+		}
+		if ($status) {
+			$this->SemuaModel->editData('pertanyaan','id_pertanyaan', $id,$in);
+			$message = "Berhasil Mengedit Data ";
+			$status = true;
+		} else {
+			$message = "Gagal Mengubah Data #1";
+		}
+		echo json_encode(array(
+			'status' => $status,
+			'message' => $message,
+			'errorInputs' => $errorInputs
+		));
+	}
         
 }
         

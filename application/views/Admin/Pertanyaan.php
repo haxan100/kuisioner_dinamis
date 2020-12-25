@@ -49,6 +49,7 @@
  								<div class="x_content">
  									<br />
  									<div class="form-group row">
+ 										<input class="form-control" type="hidden" name="id" id="id">
  										<label class="control-label col-md-3 col-sm-3 col-xs-3">Pertanyaan</label>
  										<div class="col-md-9 col-sm-9 col-xs-9">
  											<input id="ask" name="ask" class="form-control " placeholder="Isikan pertanyaan" type="text" class="form-control">
@@ -79,7 +80,7 @@
  				var bu = '<?= base_url(); ?>';
 
  				var url_form_tambah = bu + 'admin/tambahPertanyaan';
- 				var url_form_ubah = bu + 'admin/ubah_siswa_proses';
+ 				var url_form_ubah = bu + 'admin/ubahPertanyaan';
 
  				function validasi(id, valid, message = '') {
  					if (valid) {
@@ -243,6 +244,35 @@
  							return d;
  						}
  					},
+ 				});
+
+ 				$('body').on('click', '.btnUbah', function() {
+ 					url_form = url_form_ubah;
+ 					$('#tambah_act').hide();
+
+ 					var id = $(this).data('id_pertanyaan');
+ 					var pertanyaan = $(this).data('pertanyaan');
+ 					$('#modal-detail').modal('show');
+
+ 					$('#id').val(id);
+ 					$('#ask').val(pertanyaan);
+
+
+ 				});
+
+ 				$('#Edit').on('click', function() {
+
+ 					var id = $('#id').val();
+ 					var ask = $('#ask').val();
+
+ 					if (
+ 						id && ask 
+ 					) {
+ 						$("#form").submit();
+
+ 					}
+
+
  				});
 
 
