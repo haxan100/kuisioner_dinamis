@@ -1,8 +1,5 @@
 <!-- footer content -->
 <footer>
-	<div class="pull-right">
-		Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-	</div>
 	<div class="clearfix"></div>
 </footer>
 <!-- /footer content -->
@@ -49,6 +46,8 @@
 
 
 <script src="<?= base_url() ?>/assets/vendors/datatables.net/js/jquery.dataTables.js"></script>
+
+<script src="<?= base_url() ?>/assets/vendors/sweetalert2/sweetalert2.all.js"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="<?= base_url() ?>/assets/build/js/custom.min.js"></script>

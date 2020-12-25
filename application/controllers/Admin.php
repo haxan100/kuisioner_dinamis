@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('AdminModel');
+		$this->load->model('SemuaModel');
 	}	
 public function index()
 {
@@ -56,6 +57,32 @@ public function index()
 		}
 		echo json_encode($datatable);
 		exit();
+	}
+	public function tambahPertanyaan()
+	{
+		// var_dump($_POST);die;
+		$ask = $this->input->post('ask', TRUE);
+
+		$message = 'Gagal menambah data !<br>Silahkan lengkapi data yang diperlukan.';
+		$errorInputs = array();
+		$status = true;
+
+		if (empty($ask)) {
+			$status = false;
+			$errorInputs[] = array('#ask', 'Silahkan Isi Pertanyaan');
+		}
+		$in = array(
+			'pertanyaan' => $ask,
+		);
+		$this->SemuaModel->tambahData('pertanyaan',$in);
+
+		$message = "Berhasil Menambah Data #1";
+
+		echo json_encode(array(
+			'status' => $status,
+			'message' => $message,
+			'errorInputs' => $errorInputs
+		));
 	}
         
 }
