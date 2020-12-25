@@ -84,6 +84,24 @@ public function index()
 			'errorInputs' => $errorInputs
 		));
 	}
+	public function hapusPertanyaan()
+	{
+		$id = $this->input->post('id', TRUE);
+		$data = $this->SemuaModel->getDataId('pertanyaan',$id)->result();
+		$status = false;
+		$message = 'Gagal menghapus Data!';
+		if (count($data) == 0) {
+			$message .= '<br>Tidak terdapat Data yang dimaksud.';
+		} else {
+			$this->SemuaModel->HapusData('pertanyaan','id_pertanyaan',$id);
+			$status = true;
+			$message = 'Berhasil menghapus Data: <b>' . $data[0]->pertanyaan . '</b>';
+		}
+		echo json_encode(array(
+			'status' => $status,
+			'message' => $message,
+		));
+	}
         
 }
         

@@ -115,7 +115,6 @@
  				$('#tambah_act').on('click', function() {
 
  					var ask = $('#ask').val();
- 					console.log(ask);
 
  					if (
  						pertanyaan
@@ -193,6 +192,43 @@
  					});
  					return false;
  				});
+ 				$('body').on('click', '.btnHapus', function() {
+ 					var id_siswa = $(this).data('id_pertanyaan');
+ 					var nama = $(this).data('pertanyaan');
+ 					Swal.fire({
+ 						title: 'Apakah Anda Yakin ?',
+ 						text: "Anda akan Menghapus Data: " + nama,
+ 						icon: 'warning',
+ 						showCancelButton: true,
+ 						confirmButtonColor: '#3085d6',
+ 						cancelButtonColor: '#d33',
+ 						confirmButtonText: 'Yes, delete it!'
+ 					}).then((result) => {
+
+ 						if (result.value) {
+ 							$.ajax({
+ 								url: bu + 'admin/hapusPertanyaan',
+ 								dataType: 'json',
+ 								method: 'POST',
+ 								data: {
+ 									id: id_siswa
+ 								}
+ 							}).done(function(e) {
+ 								Swal.fire(
+ 									'Deleted!',
+ 									e.message,
+ 									'success'
+ 								)
+ 								$('#modal-detail').modal('hide');
+ 								datatable.ajax.reload();
+ 							}).fail(function(e) {
+ 								var message = 'Terjadi Kesalahan. #JSMP01';
+ 							});
+ 						}
+ 					})
+
+ 				});
+
 
  				var bu = '<?= base_url(); ?>';
  				var datatable = $('#pertanyaan').DataTable({
@@ -208,5 +244,7 @@
  						}
  					},
  				});
+
+
  			});
  		</script>

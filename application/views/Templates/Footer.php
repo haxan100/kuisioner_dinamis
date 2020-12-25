@@ -1,4 +1,11 @@
 <!-- footer content -->
+<div class="clearfix"></div>
+</div>
+</div>
+
+</div>
+<br />
+
 <footer>
 	<div class="clearfix"></div>
 </footer>
