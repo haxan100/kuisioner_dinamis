@@ -2,7 +2,7 @@
  	<div class="x_panel">
  		<div class="x_content">
  			<div class="row">
- 				<input class="form-control" type="hidden" name="id_pertanyaan" id="id_pertanyaan" value="<?= $id?>">
+ 				<input class="form-control" type="hidden" name="id_pertanyaan" id="id_pertanyaan" value="<?= $id ?>">
  				<div class="x_panel">
  					<div class="x_title">
  						<h2>Judul Pertanyaan</h2>
@@ -52,7 +52,7 @@
  					</button>
  				</div>
  				<div class="modal-body">
- 					<h4>Tambah Pertanyaan</h4>
+ 					<h4>Tambah Jawaban</h4>
 
  					<div class="clearfix"></div>
 
@@ -66,8 +66,11 @@
  								<div class="x_content">
  									<br />
  									<div class="form-group row">
+
+										 <input id="id_pertanyaan" name="id_pertanyaan" value="<?php echo $id ?>" type="hidden">
+										 
  										<input class="form-control" type="hidden" name="id" id="id">
- 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Pertanyaan</label>
+ 										<label class="control-label col-md-3 col-sm-3 col-xs-3">Jawaban</label>
  										<div class="col-md-9 col-sm-9 col-xs-9">
  											<input id="ask" name="ask" class="form-control " placeholder="Isikan pertanyaan" type="text" class="form-control">
 
@@ -92,7 +95,7 @@
  		<script>
  			document.addEventListener("DOMContentLoaded", function(event) {
  				var bu = '<?= base_url(); ?>';
- 				var url_form_tambah = bu + 'admin/tambahPertanyaan';
+ 				var url_form_tambah = bu + 'admin/tambahJawaban';
  				var url_form_ubah = bu + 'admin/ubahPertanyaan';
 
  				function validasi(id, valid, message = '') {
@@ -129,6 +132,7 @@
  				$('#tambah_act').on('click', function() {
 
  					var ask = $('#ask').val();
+ 					var ask = $('#ask').val();
 
  					if (
  						pertanyaan
@@ -153,7 +157,6 @@
  					// url_form = url_form_tambah;
  					// console.log(url_form);
  					$('#Edit').hide();
- 					$("#nisn").removeAttr('readonly');
  					$('.modalProdukTitleTambah').show();
  					$('.modalProdukTitleUbah').hide();
 
@@ -162,7 +165,6 @@
  					$('#btnCopy').hide();
  					$('#btnTampil').hide();
  					$('.modalFotoUbah').hide();
- 					$('#listFoto').html('');
  					$('#foto_wrappers').html('');
  				});
 

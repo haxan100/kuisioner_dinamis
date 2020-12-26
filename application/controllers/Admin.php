@@ -141,14 +141,27 @@ public function index()
 	}
 	public function Jawaban($id= "")
 	{
-		$obj['id'] = $id;
-		$obj['pertanyaan']= $this->SemuaModel->getDataId('pertanyaan','id_pertanyaan',$id)->row()->pertanyaan;
-		// var_dump($obj['pertanyaan']);die;
-		$this->load->view('Templates/Header');
-		$this->load->view('Templates/Sidebar');
-		$this->load->view('Templates/TopNavigasi');
-		$this->load->view('Admin/Jawaban',$obj);
-		$this->load->view('Templates/Footer');
+			if($id=="") {
+				die("tidak Dikasih ID");
+			}else {
+				$ids = $this->SemuaModel->getDataId('pertanyaan', 'id_pertanyaan', $id)->row();
+				// var_dump($ids);die;
+				if($ids==null){
+					die("tidak ada");
+				}else{
+
+				
+		
+			$obj['id'] = $id;
+			$obj['pertanyaan']= $this->SemuaModel->getDataId('pertanyaan','id_pertanyaan',$id)->row()->pertanyaan;
+			// var_dump($obj['pertanyaan']);die;
+			$this->load->view('Templates/Header');
+			$this->load->view('Templates/Sidebar');
+			$this->load->view('Templates/TopNavigasi');
+			$this->load->view('Admin/Jawaban',$obj);
+			$this->load->view('Templates/Footer');
+			};
+		}
 	}
 	public function getJawaban()
 	{
@@ -180,6 +193,38 @@ public function index()
 		}
 		echo json_encode($datatable);
 		exit();
+	}
+	public function tambahJawaban()
+	{
+		// var_dump($_POST);die;
+		$id_pertanyaan = $this->input->post('id_pertanyaan', TRUE);
+		$ask = $this->input->post('ask', TRUE);
+
+		$message = 'Gagal menambah data !<br>Silahkan lengkapi data yang diperlukan.';
+		$errorInputs = array();
+		$status = true;
+
+		if (empty($ask)) {
+			$status = false;
+			$errorInputs[] = array('#ask', 'Silahkan Isi Pertanyaan');
+		}
+		if (empty($id_pertanyaan)) {
+			$status = false;
+			$errorInputs[] = array('#id_pertanyaan', 'Silahkan Isi Pertanyaan');
+		}
+		$in = array(
+			'jawaban' => $ask,
+			'id_pertanyaan' => $id_pertanyaan,
+		);
+		$this->SemuaModel->tambahData('jawaban', $in);
+
+		$message = "Berhasil Menambah Data #1";
+
+		echo json_encode(array(
+			'status' => $status,
+			'message' => $message,
+			'errorInputs' => $errorInputs
+		));
 	}
         
 }
