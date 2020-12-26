@@ -259,6 +259,24 @@ public function index()
 			'errorInputs' => $errorInputs
 		));
 	}
+	public function hapusJawaban()
+	{
+		$id = $this->input->post('id', TRUE);
+		$data = $this->SemuaModel->getDataId('jawaban', 'id_jawaban', $id)->result();
+		$status = false;
+		$message = 'Gagal menghapus Data!';
+		if (count($data) == 0) {
+			$message .= '<br>Tidak terdapat Data yang dimaksud.';
+		} else {
+			$this->SemuaModel->HapusData('jawaban', 'id_jawaban', $id);
+			$status = true;
+			$message = 'Berhasil menghapus Data: <b>' . $data[0]->jawaban . '</b>';
+		}
+		echo json_encode(array(
+			'status' => $status,
+			'message' => $message,
+		));
+	}
         
 }
         

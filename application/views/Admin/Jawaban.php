@@ -209,8 +209,8 @@
  					return false;
  				});
  				$('body').on('click', '.btnHapus', function() {
- 					var id_siswa = $(this).data('id_pertanyaan');
- 					var nama = $(this).data('pertanyaan');
+ 					var id = $(this).data('id_jawaban');
+ 					var nama = $(this).data('jawaban');
  					Swal.fire({
  						title: 'Apakah Anda Yakin ?',
  						text: "Anda akan Menghapus Data: " + nama,
@@ -223,11 +223,11 @@
 
  						if (result.value) {
  							$.ajax({
- 								url: bu + 'admin/hapusPertanyaan',
+ 								url: bu + 'admin/hapusJawaban',
  								dataType: 'json',
  								method: 'POST',
  								data: {
- 									id: id_siswa
+ 									id: id
  								}
  							}).done(function(e) {
  								Swal.fire(
