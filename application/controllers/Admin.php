@@ -181,7 +181,8 @@ public function index()
 			$fields[] = $row->jawaban . '<br>';
 			$fields[] = '
         <button class="btn btn-warning my-1  btn-block btnUbah text-white" 
-          data-id_jawaban="' . $row->id_jawaban . '"
+		  data-id_jawaban="' . $row->id_jawaban . '"
+		  data-id_pertanyaan="' . $row->id_pertanyaan . '"
           data-jawaban="' . $row->jawaban . '"
 		><i class="far fa-edit"></i> Ubah</button>
 
@@ -220,6 +221,38 @@ public function index()
 
 		$message = "Berhasil Menambah Data #1";
 
+		echo json_encode(array(
+			'status' => $status,
+			'message' => $message,
+			'errorInputs' => $errorInputs
+		));
+	}
+	public function ubahJawaban()
+	{
+		// var_dump($_POST);die;
+		$id = $this->input->post('id', TRUE);
+		$ask = $this->input->post('ask', TRUE);
+		$id_pertanyaan = $this->input->post('id_pertanyaan', TRUE);
+
+		$message = 'Gagal mengedit data !<br>Silahkan lengkapi data yang diperlukan.';
+		$errorInputs = array();
+		$status = true;
+
+		$in = array(
+			'jawaban' => $ask,
+			'id_pertanyaan' => $id_pertanyaan,
+		);
+		if (empty($ask)) {
+			$status = false;
+			$errorInputs[] = array('#ask', 'Silahkan Isi Pertanyaan');
+		}
+		if ($status) {
+			$this->SemuaModel->editData('jawaban', 'id_jawaban', $id, $in);
+			$message = "Berhasil Mengedit Data ";
+			$status = true;
+		} else {
+			$message = "Gagal Mengubah Data #1";
+		}
 		echo json_encode(array(
 			'status' => $status,
 			'message' => $message,

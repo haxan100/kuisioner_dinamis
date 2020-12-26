@@ -52,7 +52,7 @@
  					</button>
  				</div>
  				<div class="modal-body">
- 					<h4>Tambah Jawaban</h4>
+ 					<h4>Tambah </h4>
 
  					<div class="clearfix"></div>
 
@@ -67,8 +67,8 @@
  									<br />
  									<div class="form-group row">
 
-										 <input id="id_pertanyaan" name="id_pertanyaan" value="<?php echo $id ?>" type="hidden">
-										 
+ 										<input id="id_pertanyaan" name="id_pertanyaan" value="<?php echo $id ?>" type="hidden">
+
  										<input class="form-control" type="hidden" name="id" id="id">
  										<label class="control-label col-md-3 col-sm-3 col-xs-3">Jawaban</label>
  										<div class="col-md-9 col-sm-9 col-xs-9">
@@ -96,7 +96,7 @@
  			document.addEventListener("DOMContentLoaded", function(event) {
  				var bu = '<?= base_url(); ?>';
  				var url_form_tambah = bu + 'admin/tambahJawaban';
- 				var url_form_ubah = bu + 'admin/ubahPertanyaan';
+ 				var url_form_ubah = bu + 'admin/ubahJawaban';
 
  				function validasi(id, valid, message = '') {
  					if (valid) {
@@ -244,14 +244,6 @@
  					})
 
  				});
- 				$('body').on('click', '.btnDetail', function() {
- 					var id = $(this).data('id_pertanyaan');
- 					console.log(id)
-
- 					var url = bu + 'Admin/Jawaban/' + id;
- 					window.location = url;
-
- 				});
  				var bu = '<?= base_url(); ?>';
  				var datatable = $('#pertanyaan').DataTable({
  					"pagingType": "full_numbers",
@@ -275,18 +267,21 @@
  					url_form = url_form_ubah;
  					$('#tambah_act').hide();
 
- 					var id = $(this).data('id_pertanyaan');
- 					var pertanyaan = $(this).data('pertanyaan');
+ 					var id_jawaban = $(this).data('id_jawaban');
+ 					var id_pertanyaan = $(this).data('id_pertanyaan');
+ 					var jawaban = $(this).data('jawaban');
  					$('#modal-detail').modal('show');
 
- 					$('#id').val(id);
- 					$('#ask').val(pertanyaan);
+ 					$('#id').val(id_jawaban);
+ 					$('#id_pertanyaan').val(id_pertanyaan);
+ 					$('#ask').val(jawaban);
 
 
  				});
 
  				$('#Edit').on('click', function() {
 
+ 					var id_pertanyaan = $('#id_pertanyaan').val();
  					var id = $('#id').val();
  					var ask = $('#ask').val();
 
